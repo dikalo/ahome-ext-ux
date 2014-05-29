@@ -1,0 +1,4 @@
+<module>
+   <stylesheet src="buttonsegment/buttonsegment.css" />
+   <script src="buttonsegment/buttonsegment.js" />
+</module>

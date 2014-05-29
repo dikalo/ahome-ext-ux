@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+   <script src="callout/callout.js"/>
+   <stylesheet src="callout/carton.min.css" />
+   <stylesheet src="callout/default.min.css" />
+   <stylesheet src="callout/fancy-blue.min.css" />
+   <stylesheet src="callout/gray.min.css" />
+   <stylesheet src="callout/yellow.min.css" />
+ </module>
