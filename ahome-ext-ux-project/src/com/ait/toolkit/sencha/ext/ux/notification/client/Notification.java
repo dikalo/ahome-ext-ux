@@ -20,7 +20,6 @@ import com.ait.toolkit.sencha.shared.client.fx.Easing;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.ScriptInjector;
-import com.google.gwt.user.client.Element;
 
 public class Notification extends Window {
 
@@ -62,16 +61,6 @@ public class Notification extends Window {
 
 	Notification(JavaScriptObject jsObj) {
 		super(jsObj);
-	}
-
-	/**
-	 * Applys the Notification to an existing element.
-	 * 
-	 * @param element
-	 *            the element
-	 */
-	Notification(Element element) {
-		super(element);
 	}
 
 	public void setUseXAxis(boolean value) {
