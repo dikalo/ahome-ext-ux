@@ -15,16 +15,13 @@
  */
 package com.ait.toolkit.sencha.ext.ux.gmaps.client;
 
-import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.sencha.ext.client.events.container.AfterLayoutEvent;
 import com.ait.toolkit.sencha.ext.client.events.container.AfterLayoutHandler;
 import com.ait.toolkit.sencha.ext.client.ui.Panel;
 import com.ait.toolkit.sencha.shared.client.core.XType;
-import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.ScriptInjector;
-import com.google.gwt.user.client.DOM;
 
 /**
  * Wraps a Google Maps widget inside an {@link Panel}
@@ -36,6 +33,10 @@ public class GMapPanel extends Panel {
 	private static JavaScriptObject mapScriptElement;
 	private static final String GMAP_PANEL_JS_ID = "ait-gmap-panel-js-id";
 
+	static {
+		inject();
+	}
+
 	protected JavaScriptObject getConfigPrototype() {
 		return configPrototype;
 	}
@@ -45,8 +46,7 @@ public class GMapPanel extends Panel {
 	}
 
 	/**
-	 * Handler interface for handling the ready event on the underlying Google
-	 * Map
+	 * Handler interface for handling the ready event on the underlying Google Map
 	 * 
 	 */
 	public interface MapReadyHandler {
@@ -110,26 +110,9 @@ public class GMapPanel extends Panel {
 		return component.gmap;
 	}-*/;
 
-	public static void inject() {
-		mapScriptElement = ScriptInjector
-				.fromUrl(GWT.getModuleBaseURL() + "gmap/GMapPanel.js")
-				.setWindow(ScriptInjector.TOP_WINDOW)
-				.setCallback(new Callback<Void, Exception>() {
-					@Override
-					public void onSuccess(Void result) {
-						JsoHelper.setAttribute(mapScriptElement, "id",
-								GMAP_PANEL_JS_ID);
-					}
-
-					@Override
-					public void onFailure(Exception reason) {
-						// Error
-					}
-				}).inject();
-	}
-
-	public static void removeRessources() {
-		DOM.getElementById(GMAP_PANEL_JS_ID).removeFromParent();
+	private static void inject() {
+		MapPanelResources res = GWT.create(MapPanelResources.class);
+		ScriptInjector.fromString(res.js().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 	}
 
 }

@@ -30,12 +30,8 @@ public class PagingMemoryProxy extends Proxy {
 		setType("pagingmemory");
 	}
 
-	public static void inject() {
-		ScriptInjector
-				.fromUrl(
-						GWT.getModuleBaseURL()
-								+ "pagingmemory/PagingMemoryProxy.js")
-				.setWindow(ScriptInjector.TOP_WINDOW).inject();
+	static {
+		PagingMemoryProxyResources resources = GWT.create(PagingMemoryProxyResources.class);
+		ScriptInjector.fromString(resources.js().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 	}
-
 }

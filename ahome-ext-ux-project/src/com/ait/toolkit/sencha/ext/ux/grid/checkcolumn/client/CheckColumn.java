@@ -22,11 +22,14 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.ScriptInjector;
 
 /**
- * A Header subclass which renders a checkbox in each column cell which toggles
- * the truthiness of the associated data field on click.
+ * A Header subclass which renders a checkbox in each column cell which toggles the truthiness of the associated data field on click.
  * 
  */
 public class CheckColumn extends GridColumn {
+
+	static {
+		inject();
+	}
 
 	public CheckColumn() {
 		setXType(XType.CHECK_COLUMN.getValue());
@@ -51,10 +54,8 @@ public class CheckColumn extends GridColumn {
 		return new CheckColumn(obj.getJsObj());
 	}
 
-	public static void inject() {
-		ScriptInjector
-				.fromUrl(GWT.getModuleBaseURL() + "checkcolumn/CheckColumn.js")
-				.setWindow(ScriptInjector.TOP_WINDOW).inject();
+	private static void inject() {
+		ScriptInjector.fromUrl(GWT.getModuleBaseURL() + "checkcolumn/CheckColumn.js").setWindow(ScriptInjector.TOP_WINDOW).inject();
 	}
 
 }
