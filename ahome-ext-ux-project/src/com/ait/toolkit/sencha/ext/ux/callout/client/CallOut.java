@@ -15,19 +15,14 @@
  */
 package com.ait.toolkit.sencha.ext.ux.callout.client;
 
-import com.ait.toolkit.core.client.CSSUtil;
-import com.ait.toolkit.core.client.Function;
-import com.ait.toolkit.core.client.JsoHelper;
 import com.ait.toolkit.sencha.ext.client.core.Component;
-import com.ait.toolkit.sencha.ext.client.core.Ext;
 import com.ait.toolkit.sencha.ext.client.ui.Container;
 import com.ait.toolkit.sencha.shared.client.dom.ExtElement;
-import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
+import com.google.gwt.dom.client.StyleInjector;
 
 public class CallOut extends Container {
 
@@ -35,6 +30,15 @@ public class CallOut extends Container {
 	private static JavaScriptObject callOutSriptElement;
 	private static final String CALLOUT_SCRIPT_ELEMENT_ID = "ait-callout-script-id";
 	private static String callOutCssElementId;
+
+	private static final CalloutResources resources = GWT.create(CalloutResources.class);
+
+	static {
+		if (!isLoaded()) {
+			loadScript();
+			loadAllThemes();
+		}
+	}
 
 	private native void init()/*-{
 		var c = new $wnd.Ext.ux.callout.Callout();
@@ -134,56 +138,44 @@ public class CallOut extends Container {
 		return new CallOut(c.getOrCreateJsObj());
 	}
 
-	public static void inject() {
-		inject(CalloutTheme.DEFAULT);
+	public static void loadAllThemes() {
+		loadCartoonTheme();
+		loadDefaultTheme();
+		loadFancyBlueTheme();
+		loadGrayTheme();
+		loadYellowTheme();
 	}
 
-	public static void inject(CalloutTheme theme) {
-		inject(theme, new Function() {
-			@Override
-			public void execute() {
-			}
-		});
+	private static void loadScript() {
+		ScriptInjector.fromString(resources.js().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 	}
 
-	public static void inject(final Function callback) {
-		inject(CalloutTheme.DEFAULT, callback);
+	public static void loadDefaultTheme() {
+		StyleInjector.inject(resources.defaultCss().getText());
 	}
 
-	public static void inject(CalloutTheme theme, final Function callback) {
-		injectTheme(theme);
-		callOutSriptElement = ScriptInjector
-				.fromUrl(GWT.getModuleBaseURL() + "callout/Callout.js")
-				.setCallback(new Callback<Void, Exception>() {
-
-					@Override
-					public void onSuccess(Void result) {
-						callback.execute();
-						JsoHelper.setAttribute(callOutSriptElement, "id",
-								CALLOUT_SCRIPT_ELEMENT_ID);
-					}
-
-					@Override
-					public void onFailure(Exception reason) {
-						Ext.error(reason.getMessage());
-					}
-				}).setWindow(ScriptInjector.TOP_WINDOW).inject();
+	public static void loadFancyBlueTheme() {
+		StyleInjector.inject(resources.fancyBlueCss().getText());
 	}
 
-	public static void removeRessources() {
-		DOM.getElementById(callOutCssElementId).removeFromParent();
-		DOM.getElementById(CALLOUT_SCRIPT_ELEMENT_ID).removeFromParent();
+	public static void loadYellowTheme() {
+		StyleInjector.inject(resources.yellowCss().getText());
 	}
 
-	private static void injectTheme(CalloutTheme theme) {
-		callOutCssElementId = "ait-callout-theme-" + theme.name().toLowerCase();
-		CSSUtil.injectStyleSheet(getCssFromTheme(theme), callOutCssElementId);
-
+	public static void loadGrayTheme() {
+		StyleInjector.inject(resources.grayCss().getText());
 	}
 
-	private static String getCssFromTheme(CalloutTheme theme) {
-		String themeName = theme.name().toLowerCase().replace("_", "-");
-		return GWT.getModuleBaseURL() + "callout/css/" + themeName + ".css";
+	public static void loadCartoonTheme() {
+		StyleInjector.inject(resources.cartoonCss().getText());
 	}
+
+	static native boolean isLoaded()/*-{
+		if (typeof $wnd.Ext.ux.callout.Callout === "undefined"
+				|| $wnd.Ext.ux.callout.Callout === null) {
+			return false;
+		}
+		return true;
+	}-*/;
 
 }
