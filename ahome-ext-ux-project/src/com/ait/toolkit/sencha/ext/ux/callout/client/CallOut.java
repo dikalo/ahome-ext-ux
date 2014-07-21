@@ -27,17 +27,11 @@ import com.google.gwt.dom.client.StyleInjector;
 public class CallOut extends Container {
 
 	private static JavaScriptObject configPrototype;
-	private static JavaScriptObject callOutSriptElement;
-	private static final String CALLOUT_SCRIPT_ELEMENT_ID = "ait-callout-script-id";
-	private static String callOutCssElementId;
-
 	private static final CalloutResources resources = GWT.create(CalloutResources.class);
 
 	static {
-		if (!isLoaded()) {
-			loadScript();
-			loadAllThemes();
-		}
+		loadScript();
+		loadAllThemes();
 	}
 
 	private native void init()/*-{
@@ -51,6 +45,10 @@ public class CallOut extends Container {
 
 	public String getXType() {
 		return "callout";
+	}
+
+	public void setTheme(CalloutTheme theme) {
+		this.setCls(theme.name().toLowerCase().replace("_", ""));
 	}
 
 	public native void setTarget(String targetId)/*-{
@@ -140,10 +138,11 @@ public class CallOut extends Container {
 
 	public static void loadAllThemes() {
 		loadCartoonTheme();
-		loadDefaultTheme();
+		// loadDefaultTheme();
 		loadFancyBlueTheme();
 		loadGrayTheme();
 		loadYellowTheme();
+
 	}
 
 	private static void loadScript() {
