@@ -48,7 +48,7 @@ public class CallOut extends Container {
 	}
 
 	public void setTheme(CalloutTheme theme) {
-		this.setCls(theme.name().toLowerCase().replace("_", ""));
+		this.setCls(theme.name().toLowerCase().replace("_", "-"));
 	}
 
 	public native void setTarget(String targetId)/*-{
@@ -138,7 +138,7 @@ public class CallOut extends Container {
 
 	public static void loadAllThemes() {
 		loadCartoonTheme();
-		// loadDefaultTheme();
+		loadDefaultTheme();
 		loadFancyBlueTheme();
 		loadGrayTheme();
 		loadYellowTheme();
