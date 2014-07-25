@@ -1,4 +1,4 @@
-package com.ait.toolkit.sencha.ext.ux.dataview.animated;
+package com.ait.toolkit.sencha.ext.ux.dataview.animated.client;
 
 import com.ait.toolkit.sencha.ext.client.grid.plugin.AbstractViewPlugin;
 import com.google.gwt.core.client.JavaScriptObject;

@@ -1,4 +1,4 @@
-package com.ait.toolkit.sencha.ext.ux.dataview.animated;
+package com.ait.toolkit.sencha.ext.ux.dataview.animated.client;
 
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
