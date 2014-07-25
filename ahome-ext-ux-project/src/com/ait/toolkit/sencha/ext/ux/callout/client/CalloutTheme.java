@@ -16,5 +16,5 @@
 package com.ait.toolkit.sencha.ext.ux.callout.client;
 
 public enum CalloutTheme {
-	CARTOON, DEFAULT, FANCY_BLUE, GRAY, YELLOW;
+	CARTOON, CALLOUT_BASE, FANCY_BLUE, GRAY, YELLOW;
 }
