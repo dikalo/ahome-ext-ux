@@ -27,14 +27,14 @@ public class ActivityMonitorOptions extends JsObject {
 		JsoHelper.setAttribute(jsObj, "mouseEvent", value);
 	}
 
-	public native void setActivaHandler(Function fn)/*-{
+	public native void setActiveHandler(Function fn)/*-{
 		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		peer.isActive = function() {
 			fn.@com.ait.toolkit.core.client.Function::execute()();
 		};
 	}-*/;
 
-	public native void setInactivaHandler(Function fn)/*-{
+	public native void setInactiveHandler(Function fn)/*-{
 		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		peer.isInactive = function() {
 			fn.@com.ait.toolkit.core.client.Function::execute()();

@@ -98,7 +98,7 @@ Ext.define('Ext.ux.ActivityMonitor', {
         this.secondsUntilInactive = (this.maxInactive / 1000).toFixed() - this.secondsSinceLastActivity;
         if (inactive >= this.maxInactive) {
             this.log('MAXIMUM INACTIVE TIME HAS BEEN REACHED');
-            this.stop(); //remove event listeners
+             this.stop(); //remove event listeners
             
             this.isInactive();
         }
