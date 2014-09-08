@@ -1,0 +1,26 @@
+.x-view-selector {
+   position: absolute;
+    border: 1px dotted #3399BB;
+}
+
+x-dd-drag-proxy .multi-proxy .thumb-img{
+    height: 20px;
+    width: 30px;
+    margin:1px;
+}
+.x-dd-drag-proxy .thumb-img{
+    height: 60px;
+    width: 80px;
+}
+.image-node .x-tree-node-icon{
+    margin-bottom:1px;
+    height:15px;
+}
+.album-node .x-tree-node-icon, .album-btn{
+    background-image:url( ../tree/album.gif ) !important;
+}
+
+.x-dataview-draggable-ghost img {
+    width: 20px;
+    margin: 0 5px 5px 0;
+}
