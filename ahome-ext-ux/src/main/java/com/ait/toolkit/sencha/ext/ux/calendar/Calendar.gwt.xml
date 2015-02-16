@@ -1,0 +1,4 @@
+<module>
+ <stylesheet src="extensible/css/extensible-all.css" />
+     <script src="extensible/extensible-all.js" />
+</module>
