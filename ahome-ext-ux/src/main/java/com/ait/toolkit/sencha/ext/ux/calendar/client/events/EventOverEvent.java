@@ -19,36 +19,40 @@ import com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent;
 import com.ait.toolkit.sencha.shared.client.core.EventObject;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class EventAddEvent extends EventObject {
+public class EventOverEvent extends EventObject {
 
-    public static String EVENT_NAME = "eventadd";
+    public static String EVENT_NAME = "eventout";
 
     private CalendarPanel source;
     private CalendarEvent calenderEvent;
+    private Element el;
 
     /**
      * UiBinder implementations
      */
-    private static Type<EventAddHandler> TYPE = new Type<EventAddHandler>( EVENT_NAME, null );
+    private static Type<EventOutHandler> TYPE = new Type<EventOutHandler>( EVENT_NAME, null );
 
-    public static Type<EventAddHandler> getType() {
+    public static Type<EventOutHandler> getType() {
         return TYPE;
     }
 
-    public static Type<EventAddHandler> getAssociatedType() {
+    public static Type<EventOutHandler> getAssociatedType() {
         return TYPE;
     }
 
-    public EventAddEvent( JavaScriptObject jsObj ) {
+    public EventOverEvent( JavaScriptObject jsObj ) {
         super( jsObj );
     }
 
-    public EventAddEvent( CalendarPanel source, CalendarEvent calendarEvent, JavaScriptObject nativeEvent ) {
+    public EventOverEvent( CalendarPanel source, CalendarEvent calendarEvent, Element el, JavaScriptObject nativeEvent ) {
         super( nativeEvent );
-        this.calenderEvent = calendarEvent;
         this.source = source;
+        this.calenderEvent = calendarEvent;
+        this.el = el;
+
     }
 
     /**
@@ -64,6 +68,10 @@ public class EventAddEvent extends EventObject {
 
     public CalendarEvent getCalenderEvent() {
         return calenderEvent;
+    }
+
+    public Element getEl() {
+        return el;
     }
 
 }

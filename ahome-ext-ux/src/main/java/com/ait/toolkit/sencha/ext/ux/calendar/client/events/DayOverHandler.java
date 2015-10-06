@@ -18,5 +18,5 @@ package com.ait.toolkit.sencha.ext.ux.calendar.client.events;
 import com.google.gwt.event.shared.EventHandler;
 
 public interface DayOverHandler extends EventHandler {
-    public boolean onDayOver( DayOverEvent event );
+    public void onDayOver( DayOverEvent event );
 }

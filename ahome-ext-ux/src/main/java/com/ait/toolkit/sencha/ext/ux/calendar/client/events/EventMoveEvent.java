@@ -21,9 +21,9 @@ import com.ait.toolkit.sencha.shared.client.core.EventObject;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class EventAddEvent extends EventObject {
+public class EventMoveEvent extends EventObject {
 
-    public static String EVENT_NAME = "eventadd";
+    public static String EVENT_NAME = "eventmove";
 
     private CalendarPanel source;
     private CalendarEvent calenderEvent;
@@ -31,24 +31,25 @@ public class EventAddEvent extends EventObject {
     /**
      * UiBinder implementations
      */
-    private static Type<EventAddHandler> TYPE = new Type<EventAddHandler>( EVENT_NAME, null );
+    private static Type<EventMoveHandler> TYPE = new Type<EventMoveHandler>( EVENT_NAME, null );
 
-    public static Type<EventAddHandler> getType() {
+    public static Type<EventMoveHandler> getType() {
         return TYPE;
     }
 
-    public static Type<EventAddHandler> getAssociatedType() {
+    public static Type<EventMoveHandler> getAssociatedType() {
         return TYPE;
     }
 
-    public EventAddEvent( JavaScriptObject jsObj ) {
+    public EventMoveEvent( JavaScriptObject jsObj ) {
         super( jsObj );
     }
 
-    public EventAddEvent( CalendarPanel source, CalendarEvent calendarEvent, JavaScriptObject nativeEvent ) {
+    public EventMoveEvent( CalendarPanel source, CalendarEvent calendarEvent, JavaScriptObject nativeEvent ) {
         super( nativeEvent );
-        this.calenderEvent = calendarEvent;
         this.source = source;
+        this.calenderEvent = calendarEvent;
+
     }
 
     /**

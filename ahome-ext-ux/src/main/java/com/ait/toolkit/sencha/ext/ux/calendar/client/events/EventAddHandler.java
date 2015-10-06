@@ -18,5 +18,5 @@ package com.ait.toolkit.sencha.ext.ux.calendar.client.events;
 import com.google.gwt.event.shared.EventHandler;
 
 public interface EventAddHandler extends EventHandler {
-    public boolean onEventAdd( EventAddEvent event );
+    public void onEventAdd( EventAddEvent event );
 }

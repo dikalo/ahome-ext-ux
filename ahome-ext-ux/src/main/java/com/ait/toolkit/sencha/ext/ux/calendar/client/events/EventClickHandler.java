@@ -17,6 +17,6 @@ package com.ait.toolkit.sencha.ext.ux.calendar.client.events;
 
 import com.google.gwt.event.shared.EventHandler;
 
-public interface EditDetailsHandler extends EventHandler {
-    public void onEditDetails( EditDetailsEvent event );
+public interface EventClickHandler extends EventHandler {
+    public boolean onEventClick( EventClickEvent event );
 }
