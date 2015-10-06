@@ -29,6 +29,15 @@ import com.ait.toolkit.sencha.ext.ux.calendar.client.events.DayOutHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.DayOverHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EditDetailsHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventAddHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventCancelHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventClickHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventMoveHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOutHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOverHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventResizeHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventUpdateHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventsRenderedHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.InitDragHandler;
 import com.ait.toolkit.sencha.shared.client.data.Store;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.GWT;
@@ -378,6 +387,130 @@ public class CalendarPanel extends Panel {
 			return handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventAddHandler::onEventAdd(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventAddEvent;)(event);
 		};
 		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventAddEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventCancelHandler( EventCancelHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventCancelEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,rec,null);
+			return handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventCancelHandler::onEventCancel(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventCancelEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventCancelEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventClickHandler( EventClickHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r, el) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventClickEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/dom/client/Element;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,rec,el,null);
+			return handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventClickHandler::onEventClick(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventClickEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventClickEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventMoveHandler( EventMoveHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventMoveEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,rec,null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventMoveHandler::onEventMove(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventMoveEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventMoveEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventOutHandler( EventOutHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r, el) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOutEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/dom/client/Element;Lcom/google/gwt/core/client/JavaScriptObject;)(cp, rec, el, null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOutHandler::onEventOut(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventOutEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOutEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventOverHandler( EventOverHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r, el) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOverEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/dom/client/Element;Lcom/google/gwt/core/client/JavaScriptObject;)(cp, rec, el, null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOverHandler::onEventOver(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventOverEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventOverEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventResizeHandler( EventResizeHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventResizeEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,rec,null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventResizeHandler::onEventResize(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventResizeEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventResizeEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventsRenderedHandler( EventsRenderedHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventsRenderedEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventsRenderedHandler::onEventsRendered(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventsRenderedEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventsRenderedEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addInitDragHandler( InitDragHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.InitDragEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.InitDragHandler::onInitDrag(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventsRenderedEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.InitDragEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
+    public native HandlerRegistration addEventUpdateHandler( EventUpdateHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, r) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var rec = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.CalendarEvent::create(Lcom/google/gwt/core/client/JavaScriptObject;)(r);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventUpdateEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/CalendarEvent;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,rec,null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventUpdateHandler::onEventUpdate(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/EventUpdateEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventUpdateEvent::EVENT_NAME;
 		component.addListener(eventName, fn);
 		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
 		return toReturn;
