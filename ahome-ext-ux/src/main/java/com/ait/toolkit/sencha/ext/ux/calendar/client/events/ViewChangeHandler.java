@@ -17,6 +17,6 @@ package com.ait.toolkit.sencha.ext.ux.calendar.client.events;
 
 import com.google.gwt.event.shared.EventHandler;
 
-public interface RangeSelectHandler extends EventHandler {
-    public boolean onRangeSelect( RangeSelectEvent event );
+public interface ViewChangeHandler extends EventHandler {
+    public boolean onViewChange( ViewChangeEvent event );
 }

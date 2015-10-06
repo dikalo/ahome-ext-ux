@@ -38,6 +38,7 @@ import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventResizeHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventUpdateHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.EventsRenderedHandler;
 import com.ait.toolkit.sencha.ext.ux.calendar.client.events.InitDragHandler;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.events.ViewChangeHandler;
 import com.ait.toolkit.sencha.shared.client.data.Store;
 import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.GWT;
@@ -502,6 +503,21 @@ public class CalendarPanel extends Panel {
 		return toReturn;
     }-*/;
 
+    public native HandlerRegistration addViewChangeHandler( ViewChangeHandler handler )/*-{
+		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
+		var fn = function(c, v, i) {
+			var cp = @com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+			var view = @com.ait.toolkit.sencha.ext.ux.calendar.client.views.AbstractCalendarView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(v);
+			var info = @com.ait.toolkit.sencha.ext.ux.calendar.client.data.ViewInfo::new(Lcom/google/gwt/core/client/JavaScriptObject;)(v);
+			var event = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.ViewChangeEvent::new(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/CalendarPanel;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/views/AbstractCalendarView;Lcom/ait/toolkit/sencha/ext/ux/calendar/client/data/ViewInfo;Lcom/google/gwt/core/client/JavaScriptObject;)(cp,view, info, null);
+			handler.@com.ait.toolkit.sencha.ext.ux.calendar.client.events.ViewChangeHandler::onViewChange(Lcom/ait/toolkit/sencha/ext/ux/calendar/client/events/ViewChangeEvent;)(event);
+		};
+		var eventName = @com.ait.toolkit.sencha.ext.ux.calendar.client.events.ViewChangeEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
+		return toReturn;
+    }-*/;
+
     public native HandlerRegistration addEventUpdateHandler( EventUpdateHandler handler )/*-{
 		var component = this.@com.ait.toolkit.sencha.ext.client.core.Component::getOrCreateJsObj()();
 		var fn = function(c, r) {
@@ -515,6 +531,8 @@ public class CalendarPanel extends Panel {
 		var toReturn = @com.ait.toolkit.sencha.ext.client.events.HandlerRegistration::new(Lcom/ait/toolkit/sencha/ext/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,fn);
 		return toReturn;
     }-*/;
+
+    // TODO range select event
 
     public static void inject() {
         CSSUtil.injectStyleSheet( GWT.getModuleBaseURL()

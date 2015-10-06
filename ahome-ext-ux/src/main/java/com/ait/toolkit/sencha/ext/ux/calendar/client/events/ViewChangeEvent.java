@@ -16,38 +16,42 @@
 package com.ait.toolkit.sencha.ext.ux.calendar.client.events;
 
 import com.ait.toolkit.sencha.ext.ux.calendar.client.CalendarPanel;
-import com.ait.toolkit.sencha.ext.ux.calendar.client.data.RangeSelect;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.data.ViewInfo;
+import com.ait.toolkit.sencha.ext.ux.calendar.client.views.AbstractCalendarView;
 import com.ait.toolkit.sencha.shared.client.core.EventObject;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.DomEvent.Type;
 
-public class RangeSelectEvent extends EventObject {
+public class ViewChangeEvent extends EventObject {
 
-    public static String EVENT_NAME = "rangeselect";
+    public static String EVENT_NAME = "viewchange";
 
     private CalendarPanel source;
-    private RangeSelect range;
+    private AbstractCalendarView view;
+    private ViewInfo viewInfo;
 
     /**
      * UiBinder implementations
      */
-    private static Type<RangeSelectHandler> TYPE = new Type<RangeSelectHandler>( EVENT_NAME, null );
+    private static Type<ViewChangeHandler> TYPE = new Type<ViewChangeHandler>( EVENT_NAME, null );
 
-    public static Type<RangeSelectHandler> getType() {
+    public static Type<ViewChangeHandler> getType() {
         return TYPE;
     }
 
-    public static Type<RangeSelectHandler> getAssociatedType() {
+    public static Type<ViewChangeHandler> getAssociatedType() {
         return TYPE;
     }
 
-    public RangeSelectEvent( JavaScriptObject jsObj ) {
+    public ViewChangeEvent( JavaScriptObject jsObj ) {
         super( jsObj );
     }
 
-    public RangeSelectEvent( CalendarPanel source, JavaScriptObject nativeEvent ) {
+    public ViewChangeEvent( CalendarPanel source, AbstractCalendarView view, ViewInfo viewinfo, JavaScriptObject nativeEvent ) {
         super( nativeEvent );
         this.source = source;
+        this.view = view;
+        this.viewInfo = viewinfo;
     }
 
     /**
@@ -59,6 +63,14 @@ public class RangeSelectEvent extends EventObject {
 
     public CalendarPanel getSource() {
         return source;
+    }
+
+    public AbstractCalendarView getView() {
+        return view;
+    }
+
+    public ViewInfo getViewInfo() {
+        return viewInfo;
     }
 
 }

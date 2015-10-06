@@ -212,6 +212,14 @@ public class AbstractCalendarView extends Component {
         this.setAttribute( "weekText", value, true );
     }
 
+    public static AbstractCalendarView cast( JavaScriptObject peer ) {
+        return new AbstractCalendarView( peer );
+    }
+
+    public static AbstractCalendarView cast( Component peer ) {
+        return new AbstractCalendarView( peer.getOrCreateJsObj() );
+    }
+
     @Override
     protected JavaScriptObject getConfigPrototype() {
         return null;
